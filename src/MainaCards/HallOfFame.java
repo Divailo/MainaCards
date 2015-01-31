@@ -57,20 +57,24 @@ public class HallOfFame {
 	    }
 	
 	public String toString(){
-		String everything = "";
-	    try(BufferedReader br = new BufferedReader(new FileReader(filename))) {
-	        StringBuilder sb = new StringBuilder();
-	        String line = br.readLine();
-
-	        while (line != null) {
-	            sb.append(line);
-	            sb.append(System.lineSeparator());
-	            line = br.readLine();
-	        }
-	        everything = sb.toString();
-	    }
-	    catch(IOException ex) {
-            System.out.println("SOZ");}
-	    return everything;
+		String s = "";
+		for(HighScore hs : HoF){
+			s += hs.toString();
+		}
+		return s;
+		
+//		String everything = "";
+//	    try(BufferedReader br = new BufferedReader(new FileReader(filename))) {
+//	        String line = br.readLine();
+//
+//	        while (line != null) {
+//	            everything += "i";
+//	            line = br.readLine();
+//	        }
+//	    }
+//	    catch(IOException ex) {
+//            System.out.println("SOZ");
+//            }
+//	    return everything;
 	}
 }
