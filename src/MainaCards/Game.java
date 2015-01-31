@@ -15,7 +15,7 @@ import javax.swing.JPanel;
 
 public class Game {
 	
-	private HallOfFame hof = new HallOfFame();
+//	private HallOfFame hof = new HallOfFame();
 	private Deck deck;
 	private Card currCard;
 	private Card nextCard;
@@ -91,7 +91,7 @@ public class Game {
 			public void actionPerformed(ActionEvent ae) {
 				try {
 					h.setVisible(false);
-					areeeeeeeeee a = new areeeeeeeeee();
+					Main a = new Main();
 					a.setVisible(true);
 				} catch (IOException e) {
 					System.out.println("Rosen e myr6a!");
