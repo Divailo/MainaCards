@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -26,8 +27,8 @@ public class areeeeeeeeee extends JFrame {
 	JLabel l4;
 
 	public areeeeeeeeee() throws IOException {
-//		JLabel jl = new JLabel("Game Over!");
 		setSize(600,400);
+		this.setTitle("GAMBLING CARDS");
 		Game g = new Game();
 		final String card = g.getCardName();
 		image = new ImageIcon(getClass().getResource(card));
@@ -84,10 +85,6 @@ public class areeeeeeeeee extends JFrame {
 					setVisible(false);
 				}
 
-				// final String card1 = g.getCardName();
-				// image = new ImageIcon(getClass().getResource(card1));
-				// l1 = new JLabel(image);
-
 			}
 		});
 
@@ -98,15 +95,14 @@ public class areeeeeeeeee extends JFrame {
 		jp.add(jp1, BorderLayout.CENTER);
 		
 
+		this.pack();
 		this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
 
 	}
 	public static void main(String[] args) throws IOException {
 		areeeeeeeeee are = new areeeeeeeeee();
-		are.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		are.setVisible(true);
-		are.pack();
-		are.setTitle("QJ MI KURA GEORGI");
+		are.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
 	}
 }
