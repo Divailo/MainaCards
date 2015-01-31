@@ -14,7 +14,7 @@ public class Card {
 	}
 	
 	public String toString(){
-		return ranks[rank] + suits[suit];
+		return ranks[rank] + " of " + suits[suit];
 	}
 	
 	public int getRank(){

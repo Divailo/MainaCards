@@ -7,15 +7,16 @@ import java.util.Random;
 public class Deck {
 //	private ArrayList <Card> deck;
 	private Random rand = new Random();
-	private Card[] deck = new Card[52];
+	private Card[] deck;
 	private int curr;
 	private int cardsLeft;
 	
 	public Deck(){
+		deck = new Card[52];
 		int curr = 0;
 		cardsLeft = 52;
 		int z = 0;
-		for(int i = 0; i < 14; i++){
+		for(int i = 0; i < 13; i++){
 			for(int j = 0; j < 4; j++){
 				Card s = new Card(i, j);
 				deck[z] = s;
@@ -37,7 +38,7 @@ public class Deck {
 	public Card pick(){
 		cardsLeft--;
 		curr++;
-		return deck[curr-1];
+		return deck[curr];
 	}
 	
 }
