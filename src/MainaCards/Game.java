@@ -10,7 +10,7 @@ public class Game {
 	private Card nextCard;
 	private int choice;
 	private int points;
-	private String username;
+	private String username = "Pesho";
 	
 	public Game(){
 		points = 0;
@@ -23,7 +23,7 @@ public class Game {
 	
 	
 	public void guessUp(){
-		if(nextCard.getRank() > currCard.getRank()){
+		if(nextCard.getRank() >= currCard.getRank()){
 			points++;
 			gameProgress();
 		}
@@ -33,7 +33,7 @@ public class Game {
 	}
 	
 	public void guessDown(){
-		if(nextCard.getRank() < currCard.getRank()){
+		if(nextCard.getRank() <= currCard.getRank()){
 			points++;
 			gameProgress();
 		}
@@ -55,10 +55,12 @@ public class Game {
 	}
 	
 	public void GameOver(){
+		System.out.println(points);
 		System.out.println("Game Over");
-		System.out.println("Do youwant to play again ?");
+//		System.out.println("Do youwant to play again ?");
 		HighScore hs = new HighScore(username, points);
-		hof.checkForHS(hs);
+		hof.tryToAdd(hs);
+		System.out.println(hof.toString());
 	}
 	
 	public int getPoints(){
