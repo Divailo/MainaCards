@@ -1,6 +1,13 @@
 package MainaCards;
 
-import java.util.Scanner;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.awt.Font;
+
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 
 public class Game {
 	
@@ -8,11 +15,13 @@ public class Game {
 	private Deck deck;
 	private Card currCard;
 	private Card nextCard;
-	private int choice;
+//	private int choice;
 	private int points;
-	private String username = "Pesho";
+//	private String username = "Pesho";
+	private boolean isGameActive;
 	
 	public Game(){
+		isGameActive = true;
 		points = 0;
 		deck = new Deck();
 		currCard = deck.pick();
@@ -58,21 +67,38 @@ public class Game {
 //	}
 	
 	public void GameOver(){
+		isGameActive = false;
 		System.out.println(points);
 		System.out.println("Game Over");
-//		System.out.println("Do youwant to play again ?");
-		HighScore hs = new HighScore(username, points);
-		hof.tryToAdd(hs);
+//		setVisible(false);
+		hey h = new hey();
+		h.setSize(600,400);
+		JLabel jl1 = new JLabel("Game Over! " +  "\n" + " Your score: " + getPoints());
+		jl1.setFont(new Font("Arial", Font.PLAIN, 35));
+		h.setLayout(new BorderLayout());
+		h.add(jl1, BorderLayout.CENTER);
+		h.setVisible(true);
+		JButton jb = new JButton("Try Again");
+		JButton jb1 = new JButton("Exit");
+		JPanel jp = new JPanel();
+		jp.setLayout(new FlowLayout());
+		jp.add(jb);
+		jp.add(jb1);
+		h.add(jp, BorderLayout.SOUTH);
+	}
+	
+	public boolean isGameActive(){
+		return isGameActive;
 	}
 	
 	public int getPoints(){
 		return points;
 	}
 	
-	public void newGame(){
-		Scanner sc = new Scanner(System.in);
-		choice  = sc.nextInt();
-	}
+//	public void newGame(){
+//		Scanner sc = new Scanner(System.in);
+//		choice  = sc.nextInt();
+//	}
 	public String getCardName(){
 		return currCard.getRank() + "" + currCard.getSuit() + ".png";
 	}
