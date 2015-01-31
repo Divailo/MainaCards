@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -26,6 +27,7 @@ public class areeeeeeeeee extends JFrame {
 
 	public areeeeeeeeee() throws IOException {
 //		JLabel jl = new JLabel("Game Over!");
+		setSize(600,400);
 		Game g = new Game();
 		final String card = g.getCardName();
 		image = new ImageIcon(getClass().getResource(card));
@@ -94,6 +96,9 @@ public class areeeeeeeeee extends JFrame {
 		jp1.add(button, BorderLayout.SOUTH);
 
 		jp.add(jp1, BorderLayout.CENTER);
+		
+
+		this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
 
 	}
 	public static void main(String[] args) throws IOException {

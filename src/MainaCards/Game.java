@@ -3,6 +3,10 @@ package MainaCards;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.io.IOException;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -83,7 +87,23 @@ public class Game {
 		JPanel jp = new JPanel();
 		jp.setLayout(new FlowLayout());
 		jp.add(jb);
+		jb.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent ae) {
+				try {
+					h.setVisible(false);
+					areeeeeeeeee a = new areeeeeeeeee();
+					a.setVisible(true);
+				} catch (IOException e) {
+					System.out.println("Rosen e myr6a!");
+				}
+			}
+			});
 		jp.add(jb1);
+		jb1.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent ae){
+				h.dispatchEvent(new WindowEvent(h, WindowEvent.WINDOW_CLOSING));
+			}
+		});
 		h.add(jp, BorderLayout.SOUTH);
 	}
 	
