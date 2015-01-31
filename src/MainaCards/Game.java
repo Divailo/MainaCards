@@ -17,16 +17,16 @@ public class Game {
 		deck = new Deck();
 		currCard = deck.pick();
 		//GUI tree
-		gameProgress();
+		//gameProgress();
 	}
 	
 	
 	
 	public void guessUp(){
+		nextCard = deck.pick();
 		if(nextCard.getRank() >= currCard.getRank()){
 			points++;
 			currCard = nextCard;
-			gameProgress();
 		}
 		else{
 			GameOver();
@@ -34,28 +34,28 @@ public class Game {
 	}
 	
 	public void guessDown(){
+		nextCard = deck.pick();
 		if(nextCard.getRank() <= currCard.getRank()){
 			points++;
 			currCard = nextCard;
-			gameProgress();
 		}
 		else{
 			GameOver();
 		}
 	}
 	
-	public void gameProgress(){
-		System.out.println(currCard);
-		newGame();
-		nextCard = deck.pick();
-		//pri natiskane na butona, choice se promenq na 0 iii 1
-		if(choice == 0){
-			guessDown();
-		}
-		else if(choice == 1){
-			guessUp();
-		}
-	}
+//	public void gameProgress(){
+////		System.out.println(currCard);
+////		newGame();
+//		nextCard = deck.pick();
+//		//pri natiskane na butona, choice se promenq na 0 iii 1
+//		if(choice == 0){
+//			guessDown();
+//		}
+//		else if(choice == 1){
+//			guessUp();
+//		}
+//	}
 	
 	public void GameOver(){
 		System.out.println(points);
@@ -72,6 +72,9 @@ public class Game {
 	public void newGame(){
 		Scanner sc = new Scanner(System.in);
 		choice  = sc.nextInt();
+	}
+	public String getCardName(){
+		return currCard.getRank() + "" + currCard.getSuit() + ".png";
 	}
 
 }

@@ -1,14 +1,12 @@
-package maina;
+package MainaCards;
 
 import java.awt.BorderLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.image.BufferedImage;
-import java.io.File;
+import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -30,43 +28,79 @@ public class areeeeeeeeee extends JFrame {
 	
 	
 	public areeeeeeeeee() throws IOException{
-		BufferedImage buttonIcon = ImageIO.read(new File("52.png"));
-		button = new JButton(new ImageIcon(buttonIcon));
+		//BufferedImage buttonIcon = ImageIO.read(new File("52.png"));
+		//button = new JButton(new ImageIcon(buttonIcon));
 		//setLayout(new FlowLayout());
-		JPanel panel1 = new JPanel(new GridBagLayout());
-		GridBagConstraints c = new GridBagConstraints();
-		
-		image = new ImageIcon(getClass().getResource("00.png"));
+		Game g = new Game();
+		final String card =  g.getCardName();
+		image = new ImageIcon(getClass().getResource(card));
 		l1 = new JLabel(image);
-		up = new ImageIcon(getClass().getResource("up.png"));
-		l3 = new JLabel(up);
+		image2 = new ImageIcon(getClass().getResource("cardB.jpg"));
+		l2= new JLabel(image2); 
+		JButton button = new JButton();
+		  try {
+		    Image img = ImageIO.read(getClass().getResource("down.png"));
+		    button.setIcon(new ImageIcon(img));
+		  } catch (IOException ex) {
+		  }
+		  
+		  JButton button1 = new JButton();
+		  try {
+		    Image img = ImageIO.read(getClass().getResource("up.png"));
+		    button1.setIcon(new ImageIcon(img));
+		  } catch (IOException ex) {
+		  }		
 		
-		down = new ImageIcon(getClass().getResource("down.png"));
-		l4 = new JLabel(down);
-		
-		image2 = new ImageIcon(getClass().getResource("01.png"));
-		l2= new JLabel(image2);
-		
-		add(panel1);
 		JPanel jp = new JPanel(new BorderLayout());
-		add(jp);
 		jp.add(l1, BorderLayout.WEST);
 		jp.add(l2, BorderLayout.EAST);
+		add(jp);
+		
 		
 		JPanel jp1 = new JPanel(new BorderLayout());
-		JPanel jp2 = new JPanel(new BorderLayout());
 		
-		button.setBorder(BorderFactory.createEmptyBorder());
-		button.setContentAreaFilled(false);
+		button.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) {
+				//label to4kite da raboti
+				
+				g.guessDown();
+				String newcard = g.getCardName();
+				ImageIcon newImage = new ImageIcon(getClass().getResource(newcard));
+				l1.setIcon(newImage);
+				System.out.println(g.getCardName());
+//				final String newcard =  g.getCardName();
+//				ImageIcon newimage = new ImageIcon(getClass().getResource(newcard));
+//				JLabel newl1 = new JLabel(newimage);
+//				jp.add(newl1, BorderLayout.WEST);
+			}
+		});
+		button1.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent arg0) {
+				//label to4kite da raboti
+				
+				g.guessUp();
+				String newcard = g.getCardName();
+				ImageIcon newImage = new ImageIcon(getClass().getResource(newcard));
+				l1.setIcon(newImage);
+				System.out.println(g.getCardName());
+				
+//				final String card1 = g.getCardName();
+//				image = new ImageIcon(getClass().getResource(card1));
+//				l1 = new JLabel(image);
+				
+			}
+		});
 		
-		jp1.add(jp2, BorderLayout.CENTER);		
-		jp2.add(l3,BorderLayout.NORTH);
-		jp2.add(inARow, BorderLayout.CENTER);
-		jp2.add(l4,BorderLayout.SOUTH);
+		jp1.add(button1,BorderLayout.NORTH);
+		
+		jp1.add(button,BorderLayout.SOUTH);
 		
 		jp.add(jp1, BorderLayout.CENTER);
 		
 		
+	}
+	public void changeCard(){
+		jp1.add(button1,BorderLayout.NORTH);
 	}
 	public static void main(String[] args) throws IOException{
 		areeeeeeeeee are = new areeeeeeeeee();
@@ -74,6 +108,7 @@ public class areeeeeeeeee extends JFrame {
 		are.setVisible(true);
 		are.pack();
 		are.setTitle("QJ MI KURA GEORGI");
+		
 	}
 }
 
