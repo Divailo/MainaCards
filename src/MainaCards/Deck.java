@@ -41,4 +41,8 @@ public class Deck {
 		return deck[curr];
 	}
 	
+	public int getCardsLeft(){
+		return cardsLeft;
+	}
+	
 }
