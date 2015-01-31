@@ -1,5 +1,8 @@
 package MainaCards;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class HallOfFame {
@@ -11,6 +14,10 @@ public class HallOfFame {
 			HighScore hs = new HighScore("null", 0);
 			HoF.add(hs);
 		}
+	}
+	
+	public HallOfFame(ArrayList<HighScore> al){
+		
 	}
 	
 	public void checkForHS(HighScore hs){
@@ -28,5 +35,22 @@ public class HallOfFame {
 		for(int i = 0; i < HoF.size(); i++){
 			cc.compare(HoF.get(i), HoF.get(i+1));
 		}
+		HoF.remove(HoF.get(HoF.size()));
 	}
+	
+//	public void overrideResults(String writeFileName, String text){
+//	        try
+//	        {
+//	        FileWriter fileWriter = new FileWriter(writeFileName);
+//	        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+//
+//	        bufferedWriter.write(text);
+//
+//	        // Always close files.
+//	        bufferedWriter.close();
+//
+//	        }
+//	        catch(IOException ex) {
+//	            System.out.println("Error writing to file '"+ writeFileName + "'");}
+//	    }
 }

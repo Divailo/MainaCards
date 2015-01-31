@@ -1,14 +1,12 @@
 package MainaCards;
 
-import java.io.File;
-
 public class HighScore {
-<<<<<<< HEAD
-	private String name;
+	
+	private String username;
 	private int score;
 	
 	public HighScore(String n, int s){
-		name = n;
+		username = n;
 		score = s;
 	}
 	public int getScore(){
@@ -16,24 +14,10 @@ public class HighScore {
 	}
 	
 	public String getName(){
-		return name;
+		return username;
 	}
 	
-	
-=======
-	
-	private String username;
-	private int score;
-	
-	
-	public HighScore(String s, int i){
-		username = s;
-		score = i;
+	public String toString(){
+		return "Name: " + username + " Score: " + score;
 	}
-	
-	public File addHighScore(){
-		
-	}
-
->>>>>>> 5a6e56933ef0615bf2f43d0b2223f4c60671413c
 }
