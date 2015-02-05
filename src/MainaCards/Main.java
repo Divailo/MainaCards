@@ -101,7 +101,7 @@ public class Main extends JFrame {
 	public static void main(String[] args) throws IOException {
 		Main are = new Main();
 		are.setVisible(true);
-		are.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		are.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
 	}
 }
