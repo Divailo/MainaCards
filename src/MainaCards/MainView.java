@@ -43,7 +43,7 @@ public class MainView extends JFrame {
 		buttonPanel.add(upButton, BorderLayout.NORTH);
 		buttonPanel.add(downButton, BorderLayout.SOUTH);
 		
-		//adding everyting in the main panel
+		//adding everything in the main panel
 		mainPanel.add(currentCardImageLabel, BorderLayout.WEST);
 		mainPanel.add(cardBackImageLabel, BorderLayout.EAST);
 		mainPanel.add(buttonPanel, BorderLayout.CENTER);
